@@ -1,0 +1,24 @@
+http://139.62.210.151/~n00895918/cop4813/assign6/index.php
+
+In this project i addressed SQL injection by using two different methods:
+    Using the PHP function htmlspecialchars()
+    Using PDO
+
+htmlspecialchars() will prevent any actual special characters from being saved in the database by converting all
+symbols e.g. <>;'[]{}*&# into their UTF-8 codes thus preventing SQL injection by inputing a string like '); DROP TABLE x;--
+It also prevents XSS (cross site scripting)
+
+PDO is a better way to prevent injection though. By using PDO, we can make prepared statements with placeholder values
+in the SQL statements instead of putting actual user input which could be malicious
+e.g. "$pdo->prepare(INSERT INTO Table (val1,val2) VALUES (?,?))"
+
+The above statement uses '?' to hold the place for the variables we want to insert. After running the prepared statement,
+we can execute it and input the variables. They will be cleaned to prevent any malicious code.
+
+$pdo->execute([
+    $val1,
+    $val2,
+]);
+
+Using PDO is the best way to prevent SQL injection and XSS and is used by every single business that creates PHP applications,
+including my own company.
