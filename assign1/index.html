@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logan Sirdevan - Software Engineer</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a href="../index.html" style="display: block; margin-top: 15px; margin-left: 15px;">Home Page</a>
+<div class="container">
+    <div class="header"><a href="mailto:logan@sirdevan.com">Logan Sirdevan</a></div>
+    <div class="subheader">Aspiring Software Engineer</div>
+    <div class="links">
+        <a href="#section-about" class="selected">About</a>
+        <a href="#section-projects">Projects</a>
+        <a href="#section-schedule">Current Schedule</a>
+        <!-- <a href="#section-contact">Contact</a> -->
+        <a href="#section-resume">Resume</a>
+    </div>
+    <div class="content-switch">
+        <div id="section-about" class="tab selected">
+            <img src="me.png" width=150px legnth=150px align="right">Hello, I'm Logan and I'm currently studying
+            Computer Information Systems at the University of North Florida. This is my portfolio website where I show
+            school and personal projects related to web development, software engineering, and everything
+            programming-related.<br/><br/>This site is not meant to be an exhaustive list of works, but more as a
+            showcase of my abilities and what i've been learning across many languages and platforms.<br/><br/>I'm
+            currently learning HTML, CSS, JavaScript, ASP.NET, C#, and PHP. You can find some of my code and more of my
+            projects by visiting my GitHub portfolio linked above. After recieving my degree, i plan on moving up in the
+            marketing company I currently work for. Some of my favorite sites include:
+            <ul><font color="green">
+                <li><a href="https://www.reddit.com">Reddit</a></li>
+                <li><a href="https://www.youtube.com">Youtube</a></li>
+                <li><a href="https://www.twitter.com">Twitter</a></li>
+            </ul>
+            </font>
+        </div>
+        <div id="section-schedule" class="tab" style="display:none;">
+            <table border="1">
+                <tr style="font-weight:150;">
+                    <td>
+                        Class prefix
+                    </td>
+                    <td>
+                        Class name
+                    </td>
+                    <td>
+                        Class times
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        CIS 4327
+                    </td>
+                    <td>
+                        Information Systems Senior Project
+                    </td>
+                    <td>
+                        4:30 PM - 5:45 PM TR
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        COP 4720
+                    </td>
+                    <td>
+                        Databse Systems
+                    </td>
+                    <td>
+                        4:30 PM - 5:45 PM MW
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        COP 4813
+                    </td>
+                    <td>
+                        Internet Programming
+                    </td>
+                    <td>
+                        Online
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        MAN 4240
+                    </td>
+                    <td>
+                        Organizational Behavior
+                    </td>
+                    <td>
+                        3:05 PM - 4:20 PM TR
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="section-projects" class="tab" style="display:none;">
+            <div class="projects">
+                <div class="project">
+                    <h2><a href="http://bridgegatedev.com">Bridgegatedev.com</a></h2>
+                    <div class="desc">
+                        Project I worked on for a company called BridgeGate. Converted all documentation from product
+                        manuals into a web accessible knowledge base, documentation, and FAQ's system.
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h2><a href="https://github.com/logan1220/TicTacToe">Tic Tac Toe Game</a></h2>
+                    <div class="desc">
+                        A fun little game of Tic Tac Toe I created in C++
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h2><a href="https://github.com/logan1220/POS">Point of Sale system</a></h2>
+                    <div class="desc">
+                        Simple Point of Sale system I created in C# in Visual Studio.
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h2><a href="https://github.com/logan1220/Sorting-and-Searching-Arrays">Sorting And Searching
+                        Arrays</a></h2>
+                    <div class="desc">
+                        An interesting small project I created in my free time playing around with sorting and searching
+                        arrays.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section-resume" class="tab" style="display:none;">
+            <div class="projects">
+                <div clas="project">
+                    <iframe src="https://resume.creddle.io/embed/31cw6q1ee0o" width="850" height="1100"
+                            seamless></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- TODO: Add php to control contact page -->
+        <div id="section-contact" class="tab" style="display:none;">
+            <form action="/contact.php" method="POST">
+                <div class="form-element">
+                    <input type="text" name="name" placeholder="Name" autofocus="autofocus" required="required">
+                </div>
+                <div class="form-element">
+                    <input type="email" name="email" placeholder="Email" required="required">
+                </div>
+                <div class="form-element">
+                    <input type="text" name="phone" placeholder="Phone Number" required="req">
+                </div>
+                <div class="form-element">
+                    <textarea placeholder="Comments"></textarea>
+                </div>
+                <div class="form-element">
+                    <input type="submit" value="Contact Me!">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $('.links > a').on('click', function (event) {
+        event.preventDefault();
+
+        $('.links > a.selected').removeClass('selected');
+
+        var href = $(this).addClass('selected').attr('href');
+
+        $('.content-switch .tab.selected').slideUp();
+        $(href).addClass('selected').slideDown();
+    });
+</script>
+</body>
+</html>
