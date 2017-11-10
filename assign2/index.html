@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logan Sirdevan - Software Engineer</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        function removeData() {
+            document.getElementById('output').innerHTML = '';
+            document.getElementById('errors').innerHTML = '';
+            document.getElementById("form1").reset();
+        }
+
+        function validate() {
+            var errors = [];
+
+            var first_name = document.getElementById("first_name").value;
+            var last_name = document.getElementById("last_name").value;
+            var book = [];
+            var age = document.getElementById("age");
+            var age_value = age.options[age.selectedIndex].text;
+
+            if (first_name == "") {
+                errors.push("Please enter your first name");
+            }
+
+            if (last_name == "") {
+                errors.push("Please enter your last name");
+            }
+
+            if (document.getElementById("fav_movie_alien").checked) {
+                var fav_movie = document.getElementById("fav_movie_alien").value;
+            } else if (document.getElementById("fav_movie_strange").checked) {
+                var fav_movie = document.getElementById("fav_movie_strange").value;
+            } else if (document.getElementById("fav_movie_arrival").checked) {
+                var fav_movie = document.getElementById("fav_movie_arrival").value;
+            } else if (document.getElementById("fav_movie_life").checked) {
+                var fav_movie = document.getElementById("fav_movie_life").value;
+            } else {
+                errors.push("Please select your favorite movie");
+            }
+
+            if (document.getElementById("got").checked) {
+                book.push(document.getElementById("got").value);
+            }
+            if (document.getElementById("hunger").checked) {
+                book.push(document.getElementById("hunger").value);
+            }
+            if (document.getElementById("maze").checked) {
+                book.push(document.getElementById("maze").value);
+            }
+            if (document.getElementById("divergent").checked) {
+                book.push(document.getElementById("divergent").value);
+            }
+            if (book.length == 0) {
+                errors.push("Please select your favorite books");
+            }
+
+            if (age_value == '-- Select --') {
+                errors.push("Please select your age")
+            }
+
+            if (errors.length) {
+                var error_html = '';
+                var error_el = document.getElementById('errors');
+                for (var i = 0; i < errors.length; i++) {
+                    error_html += '<li><font color=red>' + errors[i] + '</font></li>';
+                }
+                error_el.innerHTML = error_html;
+            } else {
+                var output = document.getElementById('output');
+                var final_books = '';
+                for (var x = 0; x < book.length; x++) {
+                    final_books += book[x] + ', ';
+                }
+                output.innerHTML = '<p>Your name is <b>' + first_name + ' ' + last_name + '</b>. Your favorite movie is <b>' + fav_movie + '</b>. Your favories books are <b>' + final_books + '</b>and you are <b>' + age_value + '</b> years old!</p>';
+            }
+        }
+    </script>
+
+</head>
+<body>
+<a href="../index.html" style="display: block; margin-top: 15px; margin-left: 15px;">Home Page</a>
+<div class="container" style="margin-top: 0;">
+    <div>
+        <h2>Assignment 2</h2>
+    </div>
+    <hr>
+    <form method="post" name="form1">
+        <div id="errors" class="sm-container"></div>
+        <div class="sm-container" style="text-align: left;">
+            <label for="fname">First Name: <input type="text" name="first_name" id="first_name"></label>
+            <label for="fname">Last Name: <input type="text" name="last_name" id="last_name"></label>
+        </div>
+        <hr>
+        <div class="sm-container">
+            <p class="bold">What is your favorite movie?</p>
+            <label for="fav_movie_alien"><input type="radio" name="fav_movie" id="fav_movie_alien"
+                                                value="Alien">Alien</label>
+            <label for="fav_movie_strange"><input type="radio" name="fav_movie" id="fav_movie_strange"
+                                                  value="Dr Strange">Dr. Strange</label>
+            <label for="fav_movie_life"><input type="radio" name="fav_movie" id="fav_movie_life"
+                                               value="Life">Life</label>
+            <label for="fav_movie_arrival"><input type="radio" name="fav_movie" id="fav_movie_arrival" value="Arrival">Arrival</label>
+        </div>
+        <hr>
+        <div class="sm-container">
+            <p>What are some of your favorite book series?</p>
+            <label><input type="checkbox" name="book_series" id="got" value="A Song of Ice and Fire">A Song of Ice and
+                Fire</label>
+            <label><input type="checkbox" name="book_series" id="hunger" value="Hunger Games">Hunger Games</label>
+            <label><input type="checkbox" name="book_series" id="maze" value="Maze Runner">Maze Runner</label>
+            <label><input type="checkbox" name="book_series" id="divergent" value="Divergent">Divergent</label>
+        </div>
+        <hr>
+        <div class="sm-container">
+            <p>How old are you?</p>
+            <select name="age" id="age">
+                <option value="">-- Select --</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+            </select>
+        </div>
+        <hr>
+        <input type="submit" value="Submit" onclick="validate(); return false">
+        <input type="reset" value="Reset" onclick="removeData(); return false">
+        <div id="output"></div>
+    </form>
+</div>
+</body>
+</html>
