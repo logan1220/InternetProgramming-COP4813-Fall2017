@@ -31,7 +31,7 @@ $stmt = $dbh->query($sql);
 </head>
 <body style="font-family: Arial;">
 <a href="../index.html" style="display: block; margin-top: 15px; margin-left: 15px;">Home Page</a>
-<a href="ERD.jpg" style="display: block; margin-top: 15px; margin-left: 15px;">ER Diagram</a>
+<a href="ERD.png" style="display: block; margin-top: 15px; margin-left: 15px;">ER Diagram</a>
     <div class="container" style="margin-top: 5%;">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -66,8 +66,8 @@ $stmt = $dbh->query($sql);
                                         <td><?php echo $row['company_name'];?></td>
                                         <td><?php echo $row['job_title'];?></td>
                                         <td>$<?php echo $row['salary'];?></td>
-                                        <td>Min: <?php echo $row['education'];?></td>
-                                        <td>Min: <?php echo $row['experience'];?> yr</td>
+                                        <td><?php echo $row['education'];?></td>
+                                        <td><?php echo $row['experience'];?> yr</td>
                                         <td><?php echo $row['programming_language'];?></td>
                                         <td>
                                             <a href="edit.php?id=<?php echo $row['id']?>">

@@ -33,6 +33,10 @@ label {
     display: block;
 }
 
+li {
+    text-align: left;
+}
+
 a {
     color:#666;
     margin:0 10px;
