@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script>
+        function spinGears() {
+            rotateGears($('#gear1'), void(0), 0, 360);
+            rotateGears($('#gear2'), void(0), 360, 0);
+            rotateGears($('#gear3'), void(0), 360, 0);
+            rotateGears($('#gear4'), void(0), 0, 360);
+        }
+
+        function rotateGears($elem, rotator, start, end) {
+            if (rotator === void(0)) {
+                rotator = $({deg: start});
+            } else {
+                rotator.get(0).deg = start;
+            }
+
+            return rotator.animate(
+                {deg: end},
+                {
+                    duration: 10000,
+                    easing: 'linear',
+                    step: function(now){
+                        $elem.css({transform: 'rotate(' + now + 'deg)'});
+                    },
+                    complete: function(){
+                        rotateGears($elem, rotator, start, end);
+                    }
+                }
+            );
+        }
+    </script>
+
+</head>
+<body>
+    <a href="../index.html" style="display: block; margin-top: 15px; margin-left: 15px;">Home Page</a>
+        <img src="gear.png" id="gear1" alt="gear1" style="width: 300px; margin:0 0 -30px 0;">
+        <img src="gear2.png" id="gear2" alt="gear2" style="width: 300px; margin:0 0 -81px -15px;">
+        <br>
+        <img src="gear3.png" id="gear3" alt="gear3" style="width: 300px; margin:0 0 0 100px;">
+        <img src="gear4.png" id="gear4" alt="gear4" style="width: 300px; margin:0 0 -50px -15px;">
+
+        <br>
+
+        <input class="btn btn-success" value="Rotate the Gears!" type="button" onclick="spinGears()"
+               style="margin-left:300px; left:350px; top:150px; position: absolute;">
+
+        <br>
+        <br>
+        <p style="margin-left:100px;">This animation includes 4 gears turning in sequence. Click the button to spin the gears!</p>
+</body>
+</html>
